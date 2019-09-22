@@ -15,5 +15,5 @@ public class Advertisement {
     private int id;
     private String name;
     private String content;
-    private boolean isDisable;
+    private boolean isDisabled;
 }

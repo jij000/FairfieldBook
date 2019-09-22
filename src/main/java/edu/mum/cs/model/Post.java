@@ -2,14 +2,11 @@ package edu.mum.cs.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
-public class Post {
+class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -17,4 +14,6 @@ public class Post {
     private String content;
 
     private boolean isDisable;
+    @ManyToOne
+    private User author;
 }

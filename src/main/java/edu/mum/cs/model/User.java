@@ -7,16 +7,23 @@ import java.util.List;
 
 @Data
 @Entity
-public class User {
+class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String password;
+
+	@Enumerated(EnumType.STRING)
+	@Column(length = 10)
 	private SystemRole role;
+
 	private String profilePhotoUrl;
 	private boolean isActive;
 	@OneToMany
-	private List<User> following;
+	@JoinTable(name = "follow")
+	private List<User> followingUserList;
+	@OneToMany(mappedBy = "author")
+	private List<Post> posts;
 }
