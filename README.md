@@ -2,6 +2,8 @@
 WAP Project
 
 # DB
+https://remotemysql.com/dashboard.php
+
 Created!
 You have successfully created a new database. The details are below.
 
