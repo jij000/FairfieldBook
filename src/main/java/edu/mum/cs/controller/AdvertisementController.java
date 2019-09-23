@@ -71,6 +71,12 @@ public class AdvertisementController extends HttpServlet {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 
+		Advertisement ad = new Advertisement();
+		ad.setContent(request.getParameter("content"));
+		ad.setName(request.getParameter("name"));
+		ad.setDisabled(Boolean.valueOf(request.getParameter("isDisable")));
+		em.persist(ad);
+
 		// Close the EntityManager
 		em.getTransaction().commit();
 		em.close();
