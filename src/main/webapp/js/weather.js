@@ -1,4 +1,4 @@
-$(function () {
+let weather = (function () {
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -50,11 +50,17 @@ $(function () {
         s.parentNode.insertBefore(script, s);
     }
 
-    $("#weatherCurrent").on("click", function () {
-        getLocation();
-    });
+    return{
+        "init":function(){
+            $("#weatherCurrent").on("click", function () {
+                getLocation();
+            });
+        
+            $("#weatherCity").change(function(){
+                getWeatherByName($(this).val());
+            });
+            getLocation();
+        }
+    }
 
-    $("#weatherCity").change(function(){
-        getWeatherByName($(this).val());
-    });
-});
+})();
