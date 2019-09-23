@@ -8,66 +8,28 @@
     <title>social network layout - bootstrap 4 - Bootsnipp.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <style type="text/css">
-        body {
-            background-color: #eeeeee;
-        }
-
-        .h7 {
-            font-size: 0.8rem;
-        }
-
-        .gedf-wrapper {
-            margin-top: 0.97rem;
-        }
-
-        @media (min-width: 992px) {
-            .gedf-main {
-                padding-left: 4rem;
-                padding-right: 4rem;
-            }
-
-            .gedf-card {
-                margin-bottom: 2.77rem;
-            }
-        }
-
-        /**Reset Bootstrap*/
-        .dropdown-toggle::after {
-            content: none;
-            display: none;
-        }
-    </style>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        window.alert = function () { };
-        var defaultCSS = document.getElementById('bootstrap-css');
-        function changeCSS(css) {
-            if (css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="' + css + '" type="text/css" />');
-            else $('head > link').filter(':first').replaceWith(defaultCSS);
-        }
-        $(document).ready(function () {
-            var iframe_height = parseInt($('html').height());
-            window.parent.postMessage(iframe_height, 'https://bootsnipp.com');
-        });
-    </script>
-    <script src="./logic.js"></script>
-</head>
 
-<body>
+    </script>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
+    <script src="./global.js"></script>
+    <script src="./weather.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
 
     <nav class="navbar navbar-light bg-white">
         <a href="#" class="navbar-brand">Fairfield Book</a>
@@ -108,6 +70,19 @@
                             <div class="h5">6758</div>
                         </li>
                         <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">
+                            <div class="input-group mb-1">
+                                <input type="text" class="form-control" placeholder="Your City Name"
+                                    aria-label="Your City Name" aria-describedby="button-addon2" id="weatherCity">
+                                <div class="input-group-append">
+                                    <button class="btn btn-info" type="button"
+                                        id="weatherCurrent">Current</button>
+                                </div>
+                            </div>
+                            <br>
+                            <div id="openweathermap-widget-4"></div>
+                        </li>
+
                     </ul>
                 </div>
             </div>
