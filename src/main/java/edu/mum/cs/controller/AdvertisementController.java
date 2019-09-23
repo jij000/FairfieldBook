@@ -5,8 +5,6 @@ import edu.mum.cs.model.Advertisement;
 import edu.mum.cs.utility.FBUtility;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -7,4 +7,8 @@
   <welcome-file-list>
     <welcome-file>MainControllerServlet</welcome-file>
   </welcome-file-list>
+  <context-param>
+    <param-name>imgPath</param-name>
+    <param-value>/home/</param-value>
+  </context-param>
 </web-app>

@@ -10,4 +10,7 @@ public class FBUtility {
         EntityManager em = emf.createEntityManager();
         return em;
     }
+    public static String getImgPath(ServletContext servletContext) {
+        return servletContext.getInitParameter("imgPath");
+    }
 }
