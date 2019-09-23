@@ -59,6 +59,7 @@ let weather = (function () {
             $("#weatherCity").change(function(){
                 getWeatherByName($(this).val());
             });
+            getLocation();
         }
     }
 
