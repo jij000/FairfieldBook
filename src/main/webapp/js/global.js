@@ -19,3 +19,8 @@ function addAd(title,subtitle,content,link) {
                             </div>
                         </div>`);
 }
+
+//start from here
+$(function(){
+    weather.init();
+});
