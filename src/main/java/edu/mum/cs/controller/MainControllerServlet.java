@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/MainControllerServlet")
 public class MainControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("fairfieldBook");
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -42,7 +41,7 @@ public class MainControllerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
+		request.getRequestDispatcher("/index.html").forward(request, response);
 	}
 
 	/**
@@ -51,7 +50,7 @@ public class MainControllerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
+		request.getRequestDispatcher("/index.html").forward(request, response);
 	}
 
 }

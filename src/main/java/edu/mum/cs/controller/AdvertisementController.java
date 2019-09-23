@@ -2,6 +2,7 @@ package edu.mum.cs.controller;
 
 import com.google.gson.Gson;
 import edu.mum.cs.model.Advertisement;
+import edu.mum.cs.utility.FBUtility;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,7 +23,6 @@ import java.util.List;
 @WebServlet("/Advertisement")
 public class AdvertisementController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("fairfieldBook");
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -46,7 +46,7 @@ public class AdvertisementController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Open a EntityManager
-		EntityManager em = emf.createEntityManager();
+		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
 		em.getTransaction().begin();
 		TypedQuery<Advertisement> query = em.createQuery("from Advertisement", Advertisement.class);
 		List<Advertisement> adsList = query.getResultList();
@@ -68,9 +68,8 @@ public class AdvertisementController extends HttpServlet {
 			throws ServletException, IOException {
 
 		// Open a EntityManager
-		EntityManager em = emf.createEntityManager();
+		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
 		em.getTransaction().begin();
-
 		Advertisement ad = new Advertisement();
 		ad.setContent(request.getParameter("content"));
 		ad.setName(request.getParameter("name"));
