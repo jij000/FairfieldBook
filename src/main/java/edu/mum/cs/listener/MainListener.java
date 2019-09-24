@@ -1,5 +1,8 @@
 package edu.mum.cs.listener;
 
+import twitter4j.Twitter;
+import twitter4j.TwitterFactory;
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletContext;
@@ -14,5 +17,8 @@ public class MainListener implements ServletContextListener {
         // set attribute in context
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("fairfieldBook");
         context.setAttribute("emFactory", emf);
+
+        Twitter twitter = TwitterFactory.getSingleton();
+        twitter.setOAuthConsumer(context.getInitParameter("consumerKey"), context.getInitParameter("consumerSecret"));
     }
 }
