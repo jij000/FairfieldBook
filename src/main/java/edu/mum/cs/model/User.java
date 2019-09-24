@@ -22,8 +22,11 @@ public class User {
 	private String profilePhotoUrl;
 	private boolean isActive;
 	@OneToMany
-	@JoinTable(name = "follow")
+	@JoinTable(name = "following")
 	private List<User> followingUserList;
+	@OneToMany
+	@JoinTable(name = "follower")
+	private List<User> followerUserList;
 	@OneToMany(mappedBy = "author")
 	private List<Post> posts;
 

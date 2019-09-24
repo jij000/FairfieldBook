@@ -45,11 +45,9 @@ public class AdminPostsController extends HttpServlet {
 			throws ServletException, IOException {
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
-		em.getTransaction().begin();
 		TypedQuery<Post> query = em.createQuery("from Post", Post.class);
 		List<Post> postList = query.getResultList();
 		// Close the EntityManager
-		em.getTransaction().commit();
 		em.close();
 		request.setAttribute("postList", postList);
 		request.getRequestDispatcher("/admin/post.jsp").forward(request, response);

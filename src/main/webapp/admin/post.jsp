@@ -185,23 +185,24 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="post" items="postList">
-                                        <tr>
-                                            <td>${post}</td>
+                                    ${postList}
+<%--                                    <c:forEach var="post" items="postList">--%>
+<%--                                        <tr>--%>
+<%--                                            <td>${post}</td>--%>
 <%--                                            <td>${post.id}</td>--%>
 <%--                                            <td>${post.author}</td>--%>
 <%--                                            <td>${post.content}</td>--%>
 <%--                                            <td>${post.isDisable}</td>--%>
-                                            <td>
-                                                <c:if test="${post.isDisable==true}">
-                                                    <button class="btn-danger">disable</button>
-                                                </c:if>
-                                                <c:if test="${post.isDisable==false}">
-                                                    <button class="btn-info">enable</button>
-                                                </c:if>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
+<%--                                            <td>--%>
+<%--                                                <c:if test="${post.isDisable==true}">--%>
+<%--                                                    <button class="btn-danger">disable</button>--%>
+<%--                                                </c:if>--%>
+<%--                                                <c:if test="${post.isDisable==false}">--%>
+<%--                                                    <button class="btn-info">enable</button>--%>
+<%--                                                </c:if>--%>
+<%--                                            </td>--%>
+<%--                                        </tr>--%>
+<%--                                    </c:forEach>--%>
                                     <tr>
                                         <td>2018-09-28 01:22</td>
                                         <td>100397</td>
