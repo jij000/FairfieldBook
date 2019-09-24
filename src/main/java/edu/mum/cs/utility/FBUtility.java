@@ -28,6 +28,10 @@ public class FBUtility {
         return servletContext.getInitParameter("imgPath");
     }
 
+    public static String getServerUrl(ServletContext servletContext) {
+        return servletContext.getInitParameter("serverUrl");
+    }
+
     public static List<Post> getTwitterPosts(User user) throws TwitterException {
         List<Post> posts = new ArrayList<>();
         if (null==user)

@@ -12,6 +12,11 @@
   </context-param>
 
   <context-param>
+    <param-name>serverUrl</param-name>
+    <param-value>localhost:8080</param-value>
+  </context-param>
+
+  <context-param>
     <param-name>consumerKey</param-name>
     <param-value>083ewItBudVguqRlf3Z2WJpgT</param-value>
   </context-param>
