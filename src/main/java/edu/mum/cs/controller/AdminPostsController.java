@@ -2,6 +2,7 @@ package edu.mum.cs.controller;
 
 import edu.mum.cs.model.Advertisement;
 import edu.mum.cs.model.Post;
+import edu.mum.cs.model.PostForShow;
 import edu.mum.cs.utility.FBUtility;
 
 import javax.persistence.EntityManager;
@@ -45,8 +46,8 @@ public class AdminPostsController extends HttpServlet {
 			throws ServletException, IOException {
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
-		TypedQuery<Post> query = em.createQuery("from Post", Post.class);
-		List<Post> postList = query.getResultList();
+		TypedQuery<PostForShow> query = em.createQuery("select new edu.mum.cs.model.PostForShow(p.id, p.author.name, p.content, cast(p.isDisable as string)) from Post p", PostForShow.class);
+		List<PostForShow> postList = query.getResultList();
 		// Close the EntityManager
 		em.close();
 		request.setAttribute("postList", postList);

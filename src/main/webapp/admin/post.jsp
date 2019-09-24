@@ -172,7 +172,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2 class="title-1 m-b-25">Earnings By Items</h2>
+                            <h2 class="title-1 m-b-25">Posts List</h2>
                             <div class="table-responsive table--no-card m-b-40">
                                 <table class="table table-borderless table-striped table-earning">
                                     <thead>
@@ -180,78 +180,28 @@
                                         <th>publish datetime</th>
                                         <th>publish user</th>
                                         <th>post Content</th>
-                                        <th class="text-right">status</th>
-                                        <th class="text-right">operation</th>
+                                        <th>status</th>
+                                        <th>operation</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    ${postList}
-<%--                                    <c:forEach var="post" items="postList">--%>
-<%--                                        <tr>--%>
-<%--                                            <td>${post}</td>--%>
-<%--                                            <td>${post.id}</td>--%>
-<%--                                            <td>${post.author}</td>--%>
-<%--                                            <td>${post.content}</td>--%>
-<%--                                            <td>${post.isDisable}</td>--%>
-<%--                                            <td>--%>
-<%--                                                <c:if test="${post.isDisable==true}">--%>
-<%--                                                    <button class="btn-danger">disable</button>--%>
-<%--                                                </c:if>--%>
-<%--                                                <c:if test="${post.isDisable==false}">--%>
-<%--                                                    <button class="btn-info">enable</button>--%>
-<%--                                                </c:if>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                    </c:forEach>--%>
-                                    <tr>
-                                        <td>2018-09-28 01:22</td>
-                                        <td>100397</td>
-                                        <td>Samsung S8 Black</td>
-                                        <td class="text-right">$756.00</td>
-                                        <button class="btn-info">enable</button>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-27 02:12</td>
-                                        <td>100396</td>
-                                        <td>Game Console Controller</td>
-                                        <td class="text-right">$22.00</td>
-                                        <td class="text-right">$44.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-26 23:06</td>
-                                        <td>100395</td>
-                                        <td>iPhone X 256Gb Black</td>
-                                        <td class="text-right">$1199.00</td>
-                                        <td class="text-right">$1199.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-25 19:03</td>
-                                        <td>100393</td>
-                                        <td>USB 3.0 Cable</td>
-                                        <td class="text-right">$10.00</td>
-                                        <td class="text-right">$30.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-29 05:57</td>
-                                        <td>100392</td>
-                                        <td>Smartwatch 4.0 LTE Wifi</td>
-                                        <td class="text-right">$199.00</td>
-                                        <td class="text-right">$1494.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-24 19:10</td>
-                                        <td>100391</td>
-                                        <td>Camera C430W 4k</td>
-                                        <td class="text-right">$699.00</td>
-                                        <td class="text-right">$699.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-22 00:43</td>
-                                        <td>100393</td>
-                                        <td>USB 3.0 Cable</td>
-                                        <td class="text-right">$10.00</td>
-                                        <td class="text-right">$30.00</td>
-                                    </tr>
+                                    <c:forEach var="post1" items="${postList}">
+                                        <tr>
+                                            <td>${post1.id}</td>
+                                            <td>${post1.authorName}</td>
+                                            <td>${post1.content}</td>
+
+                                                <c:if test="${post1.isDisable=='N'}">
+                                                    <td>active</td>
+                                                    <td><button class="btn-danger">disable</button></td>
+                                                </c:if>
+                                                <c:if test="${post1.isDisable=='Y'}">
+                                                    <td>inactive</td>
+                                                    <td><button class="btn-info">enable</button></td>
+                                                </c:if>
+
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
