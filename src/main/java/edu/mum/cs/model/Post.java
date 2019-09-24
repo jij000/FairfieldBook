@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-class Post {
+public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Expose
