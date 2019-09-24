@@ -26,6 +26,8 @@
     <!-- load js here -->
     <script src="./js/weather.js"></script>
     <script src="./js/global.js"></script>
+    <script src="./js/notification.js"></script>
+    <script src="./js/profile.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -52,7 +54,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
-                        <div class="h5">@LeeCross</div>
+                        <div class="h5" id="profile_name">@LeeCross</div>
                         <div class="h7 text-muted">Fullname : Miracles Lee Cross</div>
                         <div class="h7">Developer of web applications, JavaScript, PHP, Java, Python, Ruby, Java,
                             Node.js,
@@ -144,7 +146,8 @@
                     </div>
                 </div>
                 <!-- Post /////-->
-
+                <div id='notification'></div>
+                <!--<button id="btn1">click</button>-->
                 <!--- \\\\\\\Post-->
                 <div class="card gedf-card">
                     <div class="card-header">
@@ -261,7 +264,6 @@
                 </div>
                 <!-- Post /////-->
 
-
                 <!--- \\\\\\\Post-->
                 <div class="card gedf-card">
                     <div class="card-header">
@@ -329,6 +331,7 @@
     </div>
     <script type="text/javascript">
     </script>
+
 </body>
 
 </html>
