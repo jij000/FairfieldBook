@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-class User {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,4 +26,7 @@ class User {
 	private List<User> followingUserList;
 	@OneToMany(mappedBy = "author")
 	private List<Post> posts;
+
+	private String token;
+	private String tokenSecret;
 }

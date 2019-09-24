@@ -10,14 +10,14 @@ import java.io.IOException;
 /**
  * Servlet implementation class ControllerServlet
  */
-@WebServlet("/Admin")
-public class AdminController extends HttpServlet {
+@WebServlet("/AdminUsers")
+public class AdminUsersController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public AdminController() {
+	public AdminUsersController() {
 		super();
 		// TODO Auto-generated constructor stub
 //		// Open a EntityManager
@@ -35,8 +35,7 @@ public class AdminController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		request.getRequestDispatcher("/admin/admin.jsp").forward(request, response);
-		request.getRequestDispatcher("AdminPosts").forward(request, response);
+		request.getRequestDispatcher("/admin/user.jsp").forward(request, response);
 	}
 
 	/**
@@ -45,7 +44,7 @@ public class AdminController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("/admin/admin.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin/user.jsp").forward(request, response);
 	}
 
 }

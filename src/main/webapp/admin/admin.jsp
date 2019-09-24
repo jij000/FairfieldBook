@@ -43,7 +43,7 @@
             <div class="container-fluid">
                 <div class="header-mobile-inner">
                     <a class="logo" href="index.html">
-                        <img src="images/icon/logo-white.png" alt="CoolAdmin" />
+                        <img src="images/icon/logo-blue.png" alt="CoolAdmin" />
                     </a>
                     <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -57,16 +57,16 @@
             <div class="container-fluid">
                 <ul class="navbar-mobile__list list-unstyled">
                     <li>
-                        <a href="advertisement.jsp">
-                            <i class="fas fa-adn"></i>Advertisement</a>
-                    </li>
-                    <li>
-                        <a href="post.jsp">
+                        <a href="AdminPosts">
                             <i class="fas fa-list-ul"></i>Posts</a>
                     </li>
                     <li>
-                        <a href="user.jsp">
+                        <a href="AdminUsers">
                             <i class="far fa-users"></i>Users</a>
+                    </li>
+                    <li>
+                        <a href="AdminAds">
+                            <i class="fas fa-adn"></i>Advertisement</a>
                     </li>
                 </ul>
             </div>
@@ -78,23 +78,23 @@
     <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
             <a href="#">
-                <img src="images/icon/logo-white.png" alt="Cool Admin" />
+                <img src="images/icon/logo-blue.png" alt="Cool Admin" />
             </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list">
                     <li>
-                        <a href="advertisement.jsp">
-                            <i class="fas fa-ad"></i>Advertisement</a>
-                    </li>
-                    <li>
-                        <a href="post.jsp">
+                        <a href="AdminPosts">
                             <i class="fas fa-list-ul"></i>Posts</a>
                     </li>
                     <li>
-                        <a href="user.jsp">
+                        <a href="AdminUsers">
                             <i class="far fa-users"></i>Users</a>
+                    </li>
+                    <li>
+                        <a href="AdminAds">
+                            <i class="fas fa-adn"></i>Advertisement</a>
                     </li>
                 </ul>
             </nav>
@@ -171,43 +171,48 @@
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-9">
+                        <div class="col-lg-12">
                             <h2 class="title-1 m-b-25">Earnings By Items</h2>
                             <div class="table-responsive table--no-card m-b-40">
                                 <table class="table table-borderless table-striped table-earning">
                                     <thead>
                                     <tr>
-                                        <th>date</th>
-                                        <th>order ID</th>
-                                        <th>name</th>
-                                        <th class="text-right">price</th>
-                                        <th class="text-right">quantity</th>
-                                        <th class="text-right">total</th>
+                                        <th>publish datetime</th>
+                                        <th>publish user</th>
+                                        <th>post Content</th>
+                                        <th class="text-right">status</th>
+                                        <th class="text-right">operation</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>2018-09-29 05:57</td>
-                                        <td>100398</td>
-                                        <td>iPhone X 64Gb Grey</td>
-                                        <td class="text-right">$999.00</td>
-                                        <td class="text-right">1</td>
-                                        <td class="text-right">$999.00</td>
-                                    </tr>
+                                    <c:forEach var="post" items="postList">
+                                        <tr>
+                                            <td>${post}</td>
+                                            <td>${post}</td>
+                                            <td>${post}</td>
+                                            <td>${post}</td>
+                                            <td>
+                                                <c:if test="">
+                                                <button class="btn-danger">disable</button>
+                                                </c:if>
+                                                <c:if test="">
+                                                    <button class="btn-info">enable</button>
+                                                </c:if>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                     <tr>
                                         <td>2018-09-28 01:22</td>
                                         <td>100397</td>
                                         <td>Samsung S8 Black</td>
                                         <td class="text-right">$756.00</td>
-                                        <td class="text-right">1</td>
-                                        <td class="text-right">$756.00</td>
+                                        <button class="btn-info">enable</button>
                                     </tr>
                                     <tr>
                                         <td>2018-09-27 02:12</td>
                                         <td>100396</td>
                                         <td>Game Console Controller</td>
                                         <td class="text-right">$22.00</td>
-                                        <td class="text-right">2</td>
                                         <td class="text-right">$44.00</td>
                                     </tr>
                                     <tr>
@@ -215,7 +220,6 @@
                                         <td>100395</td>
                                         <td>iPhone X 256Gb Black</td>
                                         <td class="text-right">$1199.00</td>
-                                        <td class="text-right">1</td>
                                         <td class="text-right">$1199.00</td>
                                     </tr>
                                     <tr>
@@ -223,7 +227,6 @@
                                         <td>100393</td>
                                         <td>USB 3.0 Cable</td>
                                         <td class="text-right">$10.00</td>
-                                        <td class="text-right">3</td>
                                         <td class="text-right">$30.00</td>
                                     </tr>
                                     <tr>
@@ -231,7 +234,6 @@
                                         <td>100392</td>
                                         <td>Smartwatch 4.0 LTE Wifi</td>
                                         <td class="text-right">$199.00</td>
-                                        <td class="text-right">6</td>
                                         <td class="text-right">$1494.00</td>
                                     </tr>
                                     <tr>
@@ -239,7 +241,6 @@
                                         <td>100391</td>
                                         <td>Camera C430W 4k</td>
                                         <td class="text-right">$699.00</td>
-                                        <td class="text-right">1</td>
                                         <td class="text-right">$699.00</td>
                                     </tr>
                                     <tr>
@@ -247,56 +248,10 @@
                                         <td>100393</td>
                                         <td>USB 3.0 Cable</td>
                                         <td class="text-right">$10.00</td>
-                                        <td class="text-right">3</td>
                                         <td class="text-right">$30.00</td>
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <h2 class="title-1 m-b-25">Top countries</h2>
-                            <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
-                                <div class="au-card-inner">
-                                    <div class="table-responsive">
-                                        <table class="table table-top-countries">
-                                            <tbody>
-                                            <tr>
-                                                <td>United States</td>
-                                                <td class="text-right">$119,366.96</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Australia</td>
-                                                <td class="text-right">$70,261.65</td>
-                                            </tr>
-                                            <tr>
-                                                <td>United Kingdom</td>
-                                                <td class="text-right">$46,399.22</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Turkey</td>
-                                                <td class="text-right">$35,364.90</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Germany</td>
-                                                <td class="text-right">$20,366.96</td>
-                                            </tr>
-                                            <tr>
-                                                <td>France</td>
-                                                <td class="text-right">$10,366.96</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Australia</td>
-                                                <td class="text-right">$5,366.96</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Italy</td>
-                                                <td class="text-right">$1639.32</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
