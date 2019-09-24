@@ -8,6 +8,9 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletContext;
@@ -20,6 +23,7 @@ public class FBUtility {
         EntityManager em = emf.createEntityManager();
         return em;
     }
+
     public static String getImgPath(ServletContext servletContext) {
         return servletContext.getInitParameter("imgPath");
     }
@@ -41,4 +45,11 @@ public class FBUtility {
         return posts;
     }
 
+
+    public static String objectToJson(Object object) {
+        final GsonBuilder builder = new GsonBuilder();
+        builder.excludeFieldsWithoutExposeAnnotation();
+        final Gson gson = builder.create();
+        return gson.toJson(object);
+    }
 }
