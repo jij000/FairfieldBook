@@ -63,11 +63,19 @@ public class AdminAdsController extends HttpServlet {
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
 		em.getTransaction().begin();
-		TypedQuery<Advertisement> query = em.createQuery("from Advertisement where id = ?1 ", Advertisement.class);
-		query.setParameter(1, Integer.parseInt(request.getParameter("id")));
-		Advertisement ad = query.getSingleResult();
-		ad.setDisable(Boolean.valueOf(request.getParameter("isDisable")));
-		em.merge(ad);
+		if ("add".equals(request.getParameter("mode"))) {
+			Advertisement ad = new Advertisement();
+			ad.setName(request.getParameter("name"));
+			ad.setContent(request.getParameter("content"));
+			ad.setDisable(Boolean.parseBoolean(request.getParameter("isDisable")));
+			em.persist(ad);
+		} else {
+			TypedQuery<Advertisement> query = em.createQuery("from Advertisement where id = ?1 ", Advertisement.class);
+			query.setParameter(1, Integer.parseInt(request.getParameter("id")));
+			Advertisement ad = query.getSingleResult();
+			ad.setDisable(Boolean.parseBoolean(request.getParameter("isDisable")));
+			em.merge(ad);
+		}
 		// Close the EntityManager
 		em.getTransaction().commit();
 		em.close();

@@ -172,16 +172,19 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-2">
-                            1
+                            <h2 class="title-1 m-b-25">Add Ads</h2>
                         </div>
-                        <div class="col-lg-2">
-2
-                        </div>
-                        <div class="col-lg-2">
-3
-                        </div>
-                        <div class="col-lg-2">
-4
+                        <div class="col-lg-10">
+                            <label class="lb-caption">Name</label>
+                            <input class="form-control" type="text" id="adName"/>
+                            <label class="lb-caption">content</label>
+                            <textarea class="form-control" id="adContent" ></textarea>
+                            <label class="lb-caption">status</label>
+                            <select id="adIsDisable" class="input-group-text list-inline">
+                                <option selected="selected" value="false">Active</option>
+                                <option value="true">inActive</option>
+                            </select>
+                            <button id="addAdBtn" class="btn btn-primary">add</button>
                         </div>
                     </div>
                     <div class="row">
@@ -191,9 +194,9 @@
                                 <table class="table table-borderless table-striped table-earning">
                                     <thead>
                                     <tr>
-                                        <th>publish datetime</th>
-                                        <th>publish user</th>
-                                        <th>post Content</th>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Content</th>
                                         <th>status</th>
                                         <th>operation</th>
                                     </tr>
@@ -213,7 +216,6 @@
                                                 <td>inactive</td>
                                                 <td><button class="btn-info">enable</button></td>
                                             </c:if>
-
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -253,7 +255,7 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
-
+<script src="js/adsAdmin.js"></script>
 </body>
 
 </html>
