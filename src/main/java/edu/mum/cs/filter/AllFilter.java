@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/ssssssss*"})
+@WebFilter(urlPatterns = {"/*"})
 public class AllFilter implements Filter {
 
     @Override
@@ -22,7 +22,7 @@ public class AllFilter implements Filter {
         HttpSession httpSession = httpServletRequest.getSession(false);
         if (httpServletRequest.getRequestURL().toString().toUpperCase().indexOf("LOGIN")==-1){
             if (null==httpSession||null==httpSession.getAttribute("user")){
-                ((HttpServletResponse)servletResponse).sendRedirect("/login.jsp");
+                ((HttpServletResponse)servletResponse).sendRedirect("login.jsp");
             }else {
                 filterChain.doFilter(servletRequest,servletResponse);
             }
