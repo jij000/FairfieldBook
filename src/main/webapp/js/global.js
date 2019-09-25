@@ -20,12 +20,27 @@ function addAd(title,subtitle,content,link) {
                         </div>`);
 }
 
+let globalUserId = null;
+
 function visitOthers(name,id){
     window.open ("MainControllerServlet?id="+id);
 }
 
+function isSelf(){
+    return 
+}
+
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
+}
+
 //start from here
 $(function(){
+    globalUserId = getUrlParam("id");
     weather.init();
     posts.init();
+    addAd();
+
 });

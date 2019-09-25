@@ -40,7 +40,7 @@ let posts = (function () {
 
 
     function request() {
-        $.ajax("PostController").done(function (data) {
+        $.ajax("PostController",{id: globalUserId}).done(function (data) {
             data.forEach(element => {
                 addFromEnd(element);
             });
