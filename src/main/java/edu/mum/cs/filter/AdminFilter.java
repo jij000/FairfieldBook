@@ -13,7 +13,11 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter(urlPatterns = {"/Admin*"})
-public class AdminFilter extends HttpFilter {
+public class AdminFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         User user = (User) ((HttpServletRequest) req).getSession().getAttribute("user");
@@ -22,5 +26,9 @@ public class AdminFilter extends HttpFilter {
         } else {
             chain.doFilter(req, res);
         }
+    }
+    @Override
+    public void destroy() {
+
     }
 }
