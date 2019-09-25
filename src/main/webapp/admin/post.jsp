@@ -190,16 +190,14 @@
                                             <td>${post1.id}</td>
                                             <td>${post1.authorName}</td>
                                             <td>${post1.content}</td>
-
-                                                <c:if test="${post1.isDisable=='N'}">
-                                                    <td>active</td>
-                                                    <td><button class="btn-danger">disable</button></td>
-                                                </c:if>
-                                                <c:if test="${post1.isDisable=='Y'}">
-                                                    <td>inactive</td>
-                                                    <td><button class="btn-info">enable</button></td>
-                                                </c:if>
-
+                                            <c:if test="${post1.isDisable=='N'}">
+                                                <td>active</td>
+                                                <td><button class="btn-danger" id="btn">disable</button></td>
+                                            </c:if>
+                                            <c:if test="${post1.isDisable=='Y'}">
+                                                <td>inactive</td>
+                                                <td><button class="btn-info" id="btn">enable</button></td>
+                                            </c:if>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -239,6 +237,7 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
+<script src="js/postAdmin.js"></script>
 
 </body>
 

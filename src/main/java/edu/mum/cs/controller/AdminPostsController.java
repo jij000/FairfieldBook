@@ -1,5 +1,6 @@
 package edu.mum.cs.controller;
 
+import com.google.gson.Gson;
 import edu.mum.cs.model.Advertisement;
 import edu.mum.cs.model.Post;
 import edu.mum.cs.model.PostForShow;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -60,7 +62,22 @@ public class AdminPostsController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("/admin/post.jsp").forward(request, response);
+		// Open a EntityManager
+		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
+		em.getTransaction().begin();
+		TypedQuery<Post> query = em.createQuery("from Post where id = ?1 ", Post.class);
+		query.setParameter(1, request.getParameter("id"));
+		Post post = query.getSingleResult();
+		post.setDisable(Boolean.valueOf(request.getParameter("isDisable")));
+		em.merge(post);
+		// Close the EntityManager
+		em.getTransaction().commit();
+		em.close();
+
+		PrintWriter out = response.getWriter();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		out.write("success");
 	}
 
 }
