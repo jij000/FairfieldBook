@@ -1,13 +1,10 @@
 package edu.mum.cs.controller;
 
-import com.google.gson.Gson;
-import edu.mum.cs.model.Advertisement;
 import edu.mum.cs.model.Post;
-import edu.mum.cs.model.PostForShow;
+import edu.mum.cs.dto.PostDto;
 import edu.mum.cs.utility.FBUtility;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PostLoad;
 import javax.persistence.TypedQuery;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,8 +45,8 @@ public class AdminPostsController extends HttpServlet {
 			throws ServletException, IOException {
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
-		TypedQuery<PostForShow> query = em.createQuery("select new edu.mum.cs.model.PostForShow(p.id, p.author.name, p.content, cast(p.isDisable as string)) from Post p", PostForShow.class);
-		List<PostForShow> postList = query.getResultList();
+		TypedQuery<PostDto> query = em.createQuery("select new edu.mum.cs.dto.PostDto(p.id, p.author.name, p.content, cast(p.isDisable as string)) from Post p", PostDto.class);
+		List<PostDto> postList = query.getResultList();
 		// Close the EntityManager
 		em.close();
 		request.setAttribute("postList", postList);
@@ -66,7 +63,7 @@ public class AdminPostsController extends HttpServlet {
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
 		em.getTransaction().begin();
 		TypedQuery<Post> query = em.createQuery("from Post where id = ?1 ", Post.class);
-		query.setParameter(1, request.getParameter("id"));
+		query.setParameter(1, Integer.parseInt(request.getParameter("id")));
 		Post post = query.getSingleResult();
 		post.setDisable(Boolean.valueOf(request.getParameter("isDisable")));
 		em.merge(post);
@@ -75,7 +72,7 @@ public class AdminPostsController extends HttpServlet {
 		em.close();
 
 		PrintWriter out = response.getWriter();
-		response.setContentType("application/json");
+		response.setContentType("application/text");
 		response.setCharacterEncoding("UTF-8");
 		out.write("success");
 	}

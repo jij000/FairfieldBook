@@ -177,29 +177,28 @@
                                 <table class="table table-borderless table-striped table-earning">
                                     <thead>
                                     <tr>
-                                        <th>publish datetime</th>
-                                        <th>publish user</th>
-                                        <th>post Content</th>
+                                        <th>User Id</th>
+                                        <th>User name</th>
+                                        <th>profilePhoto</th>
                                         <th>status</th>
                                         <th>operation</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="post1" items="${postList}">
+                                    <c:forEach var="user1" items="${userList}">
                                         <tr>
-                                            <td>${post1.id}</td>
-                                            <td>${post1.authorName}</td>
-                                            <td>${post1.content}</td>
+                                            <td>${user1.id}</td>
+                                            <td>${user1.name}</td>
+                                            <td><img href="${user1.profilePhoto}" /></td>
 
-                                            <c:if test="${post1.isDisable=='N'}">
+                                            <c:if test="${user1.isActive=='Y'}">
                                                 <td>active</td>
                                                 <td><button class="btn-danger">disable</button></td>
                                             </c:if>
-                                            <c:if test="${post1.isDisable=='Y'}">
+                                            <c:if test="${user1.isActive=='N'}">
                                                 <td>inactive</td>
                                                 <td><button class="btn-info">enable</button></td>
                                             </c:if>
-
                                         </tr>
                                     </c:forEach>
                                     </tbody>

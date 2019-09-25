@@ -1,14 +1,11 @@
-package edu.mum.cs.model;
+package edu.mum.cs.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.hibernate.annotations.Type;
-
-import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
-public class PostForShow {
+public class PostDto {
     private int id;
     private String authorName;
     private String content;
