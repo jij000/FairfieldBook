@@ -46,7 +46,7 @@ public class AdvertisementController extends HttpServlet {
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
 		em.getTransaction().begin();
-		TypedQuery<Advertisement> query = em.createQuery("from Advertisement", Advertisement.class);
+		TypedQuery<Advertisement> query = em.createQuery("from Advertisement a where a.isDisable = false", Advertisement.class);
 		List<Advertisement> adsList = query.getResultList();
 		// Close the EntityManager
 		em.getTransaction().commit();
