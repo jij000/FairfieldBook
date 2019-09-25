@@ -38,14 +38,4 @@ public class AdminController extends HttpServlet {
 //		request.getRequestDispatcher("/admin/admin.jsp").forward(request, response);
 		request.getRequestDispatcher("AdminPosts").forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		request.getRequestDispatcher("/admin/admin.jsp").forward(request, response);
-	}
-
 }

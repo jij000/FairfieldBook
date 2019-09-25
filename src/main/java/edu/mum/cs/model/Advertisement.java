@@ -17,5 +17,5 @@ public class Advertisement {
     private String content;
     @Type(type="yes_no")
     @Column(nullable = false)
-    private boolean isDisabled;
+    private boolean isDisable;
 }

@@ -1,4 +1,4 @@
-$.get("/Advertisement").done(
+$.get("Advertisement").done(
     function(data) {
         let x;
         for (x in data) {

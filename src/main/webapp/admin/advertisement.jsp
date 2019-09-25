@@ -171,35 +171,51 @@
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row">
+                        <div class="col-lg-2">
+                            <h2 class="title-1 m-b-25">Add Ads</h2>
+                        </div>
+                        <div class="col-lg-10">
+                            <label class="lb-caption">Name</label>
+                            <input class="form-control" type="text" id="adName"/>
+                            <label class="lb-caption">content</label>
+                            <textarea class="form-control" id="adContent" ></textarea>
+                            <label class="lb-caption">status</label>
+                            <select id="adIsDisable" class="input-group-text list-inline">
+                                <option selected="selected" value="false">Active</option>
+                                <option value="true">inActive</option>
+                            </select>
+                            <button id="addAdBtn" class="btn btn-primary">add</button>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-lg-12">
                             <h2 class="title-1 m-b-25">Ads List</h2>
                             <div class="table-responsive table--no-card m-b-40">
                                 <table class="table table-borderless table-striped table-earning">
                                     <thead>
                                     <tr>
-                                        <th>publish datetime</th>
-                                        <th>publish user</th>
-                                        <th>post Content</th>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Content</th>
                                         <th>status</th>
                                         <th>operation</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="post1" items="${postList}">
+                                    <c:forEach var="ad1" items="${adList}">
                                         <tr>
-                                            <td>${post1.id}</td>
-                                            <td>${post1.authorName}</td>
-                                            <td>${post1.content}</td>
+                                            <td>${ad1.id}</td>
+                                            <td>${ad1.name}</td>
+                                            <td>${ad1.content}</td>
 
-                                            <c:if test="${post1.isDisable=='N'}">
+                                            <c:if test="${ad1.isDisable=='N'}">
                                                 <td>active</td>
                                                 <td><button class="btn-danger">disable</button></td>
                                             </c:if>
-                                            <c:if test="${post1.isDisable=='Y'}">
+                                            <c:if test="${ad1.isDisable=='Y'}">
                                                 <td>inactive</td>
                                                 <td><button class="btn-info">enable</button></td>
                                             </c:if>
-
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -239,7 +255,7 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
-
+<script src="js/adsAdmin.js"></script>
 </body>
 
 </html>

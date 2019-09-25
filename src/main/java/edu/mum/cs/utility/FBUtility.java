@@ -1,5 +1,7 @@
 package edu.mum.cs.utility;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import edu.mum.cs.model.Post;
 import edu.mum.cs.model.User;
 import twitter4j.Status;
@@ -7,9 +9,6 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -56,4 +55,5 @@ public class FBUtility {
         final Gson gson = builder.create();
         return gson.toJson(object);
     }
+
 }
