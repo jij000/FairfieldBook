@@ -83,7 +83,7 @@ public class PostController extends HttpServlet {
 		post.setAuthor(user);
 		post.setContent(request.getParameter("content"));
 		post.setPicUrl(request.getParameter("picUrl"));
-		post.setDisable(false);
+		post.setFromTwitter(false);
 		post.setDisable(false);
 		em.persist(post);
 
