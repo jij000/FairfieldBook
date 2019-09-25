@@ -40,6 +40,7 @@ public class User {
 	@OneToMany(mappedBy = "author")
 	private List<Post> posts;
 
+	@Expose
 	private String token;
 	private String tokenSecret;
 

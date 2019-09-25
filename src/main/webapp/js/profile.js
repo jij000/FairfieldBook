@@ -1,6 +1,9 @@
 $(document).ready(function() {
     loadProfile();
     //$("#profileimage").attr("src", proUrl);
+    $("#bindtwitter").click(function(){
+        window.location.assign("twitter2oauth")
+    });
 
     $("#proimgSubmit").click(function () {
         var form = $("#uploadproimage")[0];
@@ -87,4 +90,9 @@ function displayPro(data){
     $("#popimage").attr("src", proUrl);
     $("#Followers").html(data.followerNum);
     $("#Following").html(data.followingNum);
+    if(data.token){
+        $('#bindtwitter').attr("disabled", true);
+        $('#bindtwitter').html("Twitter Binded");
+    }
+        
 }

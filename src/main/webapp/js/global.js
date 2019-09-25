@@ -41,6 +41,4 @@ $(function(){
     globalUserId = getUrlParam("id");
     weather.init();
     posts.init();
-    addAd();
-
 });
