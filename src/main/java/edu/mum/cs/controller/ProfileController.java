@@ -38,6 +38,8 @@ public class ProfileController extends HttpServlet {
             List<User> list = tq.getResultList();
             if(list.size()!=0)
                 user = list.get(0);
+            user.setFollowerNum(user.getFollowerUserList().size());
+            user.setFollowingNum(user.getFollowingUserList().size());
             em.close();
         }
 

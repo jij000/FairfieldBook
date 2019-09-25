@@ -57,24 +57,75 @@
             <!-- personal files -->
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-body">
-                        <div class="h5">@LeeCross</div>
-                        <div class="h7 text-muted">Fullname : Miracles Lee Cross</div>
+                    <div class="card-body" data-toggle="modal" data-target="#myModal">
+                        <div class="h5" >
+                            <img class="rounded-circle" width="45" src="" alt="" id="profileimage">
+                            <label id="profilename"></label>
+                        </div>
                         <div class="h7">Developer of web applications, JavaScript, PHP, Java, Python, Ruby, Java,
                             Node.js,
                             etc.
                         </div>
                     </div>
+                    <!--profile popup -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog ">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <img class="rounded-circle" width="45" src="" alt="" id="popprofileimage">
+                                    <h4 class="modal-title">Personal Infomation</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <!--<div id="uploaddebug">111111</div>-->
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-4" >name</div>
+                                        <div class="col-sm-8" id="popname"></div>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-sm-4" >password</div>
+                                        <input class="col-xs-2" id="poppass" type="password"></input>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-sm-4">repeat pass</div>
+                                        <input class="col-xs-2" id="poprepass" type="password"></input>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-sm-4">modify image</div>
+                                        <!--<img src="//placehold.it/100" class="rounded-circle" alt="avatar" id="popimage" class="col-xs-2">-->
+                                    </div>
+                                    <div class="row">
+                                        <form id="uploadproimage" name="uploadproimage" method="POST" enctype="multipart/form-data" class="col-xs-2">
+                                            <input type="file" id="myfile" name="myfile" value="modify avatar" accept="image/png, image/jpg, image/jpeg, image/gif" />
+                                        </form>
+                                        <img src="" id="proimageupload" class="rounded-circle" width="45">
+                                        <button id="proimgSubmit"  class="col-sm-4">upload picture</button>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="submitbtn" class="btn btn-default" data-dismiss="modal">Submit</button>
+                                    <button type="button" id="closebtn" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <div class="h6 text-muted">Followers</div>
-                            <div class="h5">5.2342</div>
+                            <div class="h5" id="Followers"></div>
                         </li>
                         <li class="list-group-item">
                             <div class="h6 text-muted">Following</div>
-                            <div class="h5">6758</div>
+                            <div class="h5" id="Following"></div>
                         </li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">
+                            <button type="button" class="btn btn-outline-primary">&nbsp&nbsp&nbspbind twitter&nbsp&nbsp&nbsp</button>
+                        </li>
                         <li class="list-group-item">
                             <div class="input-group mb-1">
                                 <input type="text" class="form-control" placeholder="Your City Name"
