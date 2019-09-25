@@ -62,11 +62,11 @@
                     </li>
                     <li>
                         <a href="AdminUsers">
-                            <i class="far fa-users"></i>Users</a>
+                            <i class="far fa-list-ul"></i>Users</a>
                     </li>
                     <li>
                         <a href="AdminAds">
-                            <i class="fas fa-adn"></i>Advertisement</a>
+                            <i class="fas fa-list-ul"></i>Advertisement</a>
                     </li>
                 </ul>
             </div>
@@ -90,11 +90,11 @@
                     </li>
                     <li>
                         <a href="AdminUsers">
-                            <i class="far fa-users"></i>Users</a>
+                            <i class="far fa-list-ul"></i>Users</a>
                     </li>
                     <li>
                         <a href="AdminAds">
-                            <i class="fas fa-adn"></i>Advertisement</a>
+                            <i class="fas fa-list-ul"></i>Advertisement</a>
                     </li>
                 </ul>
             </nav>
@@ -192,11 +192,11 @@
                                             <td>${post1.content}</td>
                                             <c:if test="${post1.isDisable=='N'}">
                                                 <td>active</td>
-                                                <td><button class="btn-danger" id="btn">disable</button></td>
+                                                <td><button class="btn btn-danger" id="btn">disable</button></td>
                                             </c:if>
                                             <c:if test="${post1.isDisable=='Y'}">
                                                 <td>inactive</td>
-                                                <td><button class="btn-info" id="btn">enable</button></td>
+                                                <td><button class="btn btn-info" id="btn">enable</button></td>
                                             </c:if>
                                         </tr>
                                     </c:forEach>
