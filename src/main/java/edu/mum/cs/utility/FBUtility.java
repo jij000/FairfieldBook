@@ -1,5 +1,7 @@
 package edu.mum.cs.utility;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import edu.mum.cs.model.Post;
 import edu.mum.cs.model.User;
 import twitter4j.Status;
@@ -8,16 +10,9 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.stream.JsonReader;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,18 +55,5 @@ public class FBUtility {
         final Gson gson = builder.create();
         return gson.toJson(object);
     }
-    public static Gson receivePost(HttpServletRequest request) throws IOException {
 
-        // 读取请求内容
-        JsonReader jr = new JsonReader(new InputStreamReader(request.getInputStream(),"utf-8"));
-//        String line = null;
-//        StringBuilder sb = new StringBuilder();
-//        while ((line = br.readLine()) != null) {
-//            sb.append(line);
-//        }
-        //将json字符串转换为json对象
-        Gson json=new Gson();
-        json.fromJson(jr, Object.class);
-        return json;
-    }
 }
