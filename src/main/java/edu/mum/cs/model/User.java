@@ -40,6 +40,14 @@ public class User {
 	@OneToMany(mappedBy = "author")
 	private List<Post> posts;
 
+	@Expose
 	private String token;
+	@Expose
 	private String tokenSecret;
+
+	@Expose
+	private int followerNum;
+	@Expose
+	private int followingNum;
+
 }
