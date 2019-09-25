@@ -1,16 +1,11 @@
 let posts = (function () {
-
-    function visitOthers(id){
-        console.log(id);
-    }
-
     function makePost(data) {
         let ret = `<div class="card gedf-card">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="mr-2">
-                        <img class="rounded-circle" width="45" src="${data.author.profilePhotoUrl}" alt="" onclick="function(){visitOthers(${data.author.name});}">
+                        <img class="rounded-circle" width="45" src="${data.author.profilePhotoUrl}" alt="" onclick="visitOthers(${data.author.name},${data.author.id})">
                     </div>
                     <div class="ml-2">
                         <div class="h5 m-0">@${data.author.name}</div>
