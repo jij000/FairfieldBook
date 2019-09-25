@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -49,18 +50,16 @@ public class FollowController extends HttpServlet {
 			throws IOException {
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
-		User user = (User)request.getSession().getAttribute("user");
 
 		List<User> userList;
+		Query query;
 		if ("following".equals(request.getParameter("mode"))) {
-			TypedQuery<User> tq = em.createQuery("select u.followingUserList from User u where id=?1 ", User.class);
-			tq.setParameter(1, request.getParameter("id"));
-			userList = tq.getResultList();
+			 query = em.createQuery("select u.followingUserList from User u where u.id=?1 ");
 		} else {
-			TypedQuery<User> tq = em.createQuery("select u.followerUserList from User u where id=?1 ", User.class);
-			tq.setParameter(1, request.getParameter("id"));
-			userList = tq.getResultList();
+			 query = em.createQuery("select u.followerUserList from User u where u.id=?1 ");
 		}
+		query.setParameter(1, Integer.parseInt(request.getParameter("id")));
+		userList = query.getResultList();
 		// Close the EntityManager
 		em.close();
 		PrintWriter out = response.getWriter();
