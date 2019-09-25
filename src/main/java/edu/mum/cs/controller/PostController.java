@@ -74,22 +74,19 @@ public class PostController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		User user = (User)request.getSession().getAttribute("user");
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
 		em.getTransaction().begin();
-		if ("add".equals(request.getParameter("mode"))) {
-			Advertisement ad = new Advertisement();
-			ad.setName(request.getParameter("name"));
-			ad.setContent(request.getParameter("content"));
-			ad.setDisable(Boolean.parseBoolean(request.getParameter("isDisable")));
-			em.persist(ad);
-		} else {
-			TypedQuery<Advertisement> query = em.createQuery("from Advertisement where id = ?1 ", Advertisement.class);
-			query.setParameter(1, Integer.parseInt(request.getParameter("id")));
-			Advertisement ad = query.getSingleResult();
-			ad.setDisable(Boolean.parseBoolean(request.getParameter("isDisable")));
-			em.merge(ad);
-		}
+
+		Post post = new Post();
+		post.setAuthor(user);
+		post.setContent(request.getParameter("content"));
+		post.setPicUrl(request.getParameter("picUrl"));
+		post.setDisable(false);
+		post.setDisable(false);
+		em.persist(post);
+
 		// Close the EntityManager
 		em.getTransaction().commit();
 		em.close();
