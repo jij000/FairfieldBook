@@ -23,4 +23,5 @@ function addAd(title,subtitle,content,link) {
 //start from here
 $(function(){
     weather.init();
+    posts.init();
 });
