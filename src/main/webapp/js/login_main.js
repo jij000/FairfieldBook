@@ -1,0 +1,11 @@
+$(document).ready(function(){
+    //alert("in");
+    $("#name").keyup(function(){
+        alert("111");
+        $(".errorinfo").html("");
+    });
+    $("#password").keyup(function(){
+        alert("111");
+        $(".errorinfo").html("");
+    });
+});

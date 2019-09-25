@@ -2,6 +2,7 @@ package edu.mum.cs.controller;
 
 import edu.mum.cs.utility.FBUtility;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +16,6 @@ import java.io.IOException;
 @WebServlet("/MainControllerServlet")
 public class MainControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */

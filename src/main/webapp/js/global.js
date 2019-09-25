@@ -6,7 +6,7 @@ function changeCSS(css) {
 }
 $(document).ready(function () {
     var iframe_height = parseInt($('html').height());
-    window.parent.postMessage(iframe_height, 'https://bootsnipp.com');//should be http://localhost:32768/ like
+    //window.parent.postMessage(iframe_height, 'https://bootsnipp.com');//should be http://localhost:32768/ like
 });
 
 function addAd(title,subtitle,content,link) {
