@@ -20,16 +20,17 @@ public class AllFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest)servletRequest;
         HttpSession httpSession = httpServletRequest.getSession(false);
-        if (httpServletRequest.getRequestURL().toString().toUpperCase().indexOf("LOGIN")==-1){
+        String urlString = httpServletRequest.getRequestURL().toString().toUpperCase();
+
+        if (urlString.indexOf("LOGIN")>-1||urlString.indexOf("REGI")>-1){
+            filterChain.doFilter(servletRequest,servletResponse);
+        }else {
             if (null==httpSession||null==httpSession.getAttribute("user")){
                 ((HttpServletResponse)servletResponse).sendRedirect("login.jsp");
             }else {
                 filterChain.doFilter(servletRequest,servletResponse);
             }
-        }else {
-            filterChain.doFilter(servletRequest,servletResponse);
         }
-
     }
 
     @Override
