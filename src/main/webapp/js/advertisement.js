@@ -1,13 +1,13 @@
 $.get("Advertisement").done(
-    function(data) {
-        let x;
-        for (x in data) {
-            if($('#adpanel').innerText != "") {
+    function (data) {
+
+        for (let x = 0; x < data.length; x++) {
+            if ($('#adpanel').innerText != "" && $('#adpanel').innerText != undefined) {
                 $('#adpanel').append('</br>')
             }
-            $('#adpanel').append(x);
+            $('#adpanel').append(data[x].content);
         }
     }
-).fail(function(xhr, status, exception){
+).fail(function (xhr, status, exception) {
     $('#adpanel').append(status);
 });

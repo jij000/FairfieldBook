@@ -62,11 +62,11 @@
                     </li>
                     <li>
                         <a href="AdminUsers">
-                            <i class="far fa-users"></i>Users</a>
+                            <i class="far fa-list-ul"></i>Users</a>
                     </li>
                     <li>
                         <a href="AdminAds">
-                            <i class="fas fa-adn"></i>Advertisement</a>
+                            <i class="fas fa-list-ul"></i>Advertisement</a>
                     </li>
                 </ul>
             </div>
@@ -90,11 +90,11 @@
                     </li>
                     <li>
                         <a href="AdminUsers">
-                            <i class="far fa-users"></i>Users</a>
+                            <i class="far fa-list-ul"></i>Users</a>
                     </li>
                     <li>
                         <a href="AdminAds">
-                            <i class="fas fa-adn"></i>Advertisement</a>
+                            <i class="fas fa-list-ul"></i>Advertisement</a>
                     </li>
                 </ul>
             </nav>
@@ -178,7 +178,10 @@
                             <label class="lb-caption">Name</label>
                             <input class="form-control" type="text" id="adName"/>
                             <label class="lb-caption">content</label>
-                            <textarea class="form-control" id="adContent" ></textarea>
+                            <textarea class="form-control" id="adContent"></textarea>
+
+<%--                            <input class="form-control" type="text" id="adContent" />--%>
+
                             <label class="lb-caption">status</label>
                             <select id="adIsDisable" class="input-group-text list-inline">
                                 <option selected="selected" value="false">Active</option>
@@ -206,16 +209,16 @@
                                         <tr>
                                             <td>${ad1.id}</td>
                                             <td>${ad1.name}</td>
-                                            <td>${ad1.content}</td>
+                                            <td><c:out value="${ad1.content}"></c:out></td>
 
-                                            <c:if test="${ad1.isDisable=='N'}">
-                                                <td>active</td>
-                                                <td><button class="btn-danger">disable</button></td>
-                                            </c:if>
-                                            <c:if test="${ad1.isDisable=='Y'}">
-                                                <td>inactive</td>
-                                                <td><button class="btn-info">enable</button></td>
-                                            </c:if>
+<%--                                            <c:if test="${ad1.isDisable=='N'}">--%>
+<%--                                                <td>active</td>--%>
+<%--                                                <td><button class="btn btn-danger">disable</button></td>--%>
+<%--                                            </c:if>--%>
+<%--                                            <c:if test="${ad1.isDisable=='Y'}">--%>
+<%--                                                <td>inactive</td>--%>
+<%--                                                <td><button class="btn btn-info">enable</button></td>--%>
+<%--                                            </c:if>--%>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
