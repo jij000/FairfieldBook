@@ -193,11 +193,11 @@
 
                                             <c:if test="${user1.isActive=='Y'}">
                                                 <td>active</td>
-                                                <td><button class="btn-danger">disable</button></td>
+                                                <td><button class="btn-danger" id="btn">disable</button></td>
                                             </c:if>
                                             <c:if test="${user1.isActive=='N'}">
                                                 <td>inactive</td>
-                                                <td><button class="btn-info">enable</button></td>
+                                                <td><button class="btn-info" id="btn">enable</button></td>
                                             </c:if>
                                         </tr>
                                     </c:forEach>
@@ -238,6 +238,7 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
+<script src="js/userAdmin.js"></script>
 
 </body>
 
