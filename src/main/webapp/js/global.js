@@ -20,6 +20,10 @@ function addAd(title,subtitle,content,link) {
                         </div>`);
 }
 
+function visitOthers(name,id){
+    window.open ("MainControllerServlet?id="+id);
+}
+
 //start from here
 $(function(){
     weather.init();
