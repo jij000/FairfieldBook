@@ -2,12 +2,14 @@ package edu.mum.cs.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import edu.mum.cs.dto.PostAndFollowDto;
 import edu.mum.cs.model.Advertisement;
 import edu.mum.cs.model.Post;
 import edu.mum.cs.model.User;
 import edu.mum.cs.utility.FBUtility;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,10 +51,18 @@ public class PostController extends HttpServlet {
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
 		User user = (User)request.getSession().getAttribute("user");
-		TypedQuery<Post> query = em.createQuery(" from Post p where p.author.id = ?1", Post.class);
-		query.setParameter(1, 2);
+
+		String sql = "SELECT p.id, u.id authorId, u.name authorName, p.content, p.picUrl, p.isFromTwitter, p.isDisable, " +
+				"case when p.author_id = 1 then 1 else f.followingUserList_id end canFollow\n" +
+				"\tFROM Post p left join User u on u.id = p.author_id \n" +
+				"\tleft join following f on f.followingUserList_id = p.author_id and f.User_id = ?1\n" +
+				"\twhere (p.author_id = ?2 or p.author_id in (select followingUserList_id from following where User_id = ?2))";
+		Query query = em.createNativeQuery(sql);
+		query.setParameter(1, user.getId());
+		query.setParameter(2, request.getParameter("id"));
+
 //		query.setParameter(1, user.getId());
-		List<Post> postList = query.getResultList();
+		List<PostAndFollowDto> postList = query.getResultList();
 		// Close the EntityManager
 		em.close();
 		PrintWriter out = response.getWriter();
@@ -92,9 +102,16 @@ public class PostController extends HttpServlet {
 		em.close();
 
 		PrintWriter out = response.getWriter();
-		response.setContentType("application/text");
+		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-		out.write("success");
+
+		final GsonBuilder builder = new GsonBuilder();
+		builder.excludeFieldsWithoutExposeAnnotation();
+
+		final Gson gson = builder.create();
+
+		String jsonStr  = gson.toJson(post);
+		out.write(jsonStr);
 	}
 
 }
