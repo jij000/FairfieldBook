@@ -14,10 +14,18 @@ public class Post {
     @Expose
     private int id;
     @ManyToOne
+    @Expose
     private User author;
-    @Column(nullable = false)
     @Expose
     private String content;
+
+    @Expose
+    private String picUrl;
+
+    @Type(type="yes_no")
+    @Column(nullable = false)
+    @Expose
+    private boolean isFromTwitter;
 
     @Type(type="yes_no")
     @Column(nullable = false)
