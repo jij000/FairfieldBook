@@ -50,3 +50,7 @@ body {
     font-size: 15px;
     font-style: italic;
 }
+
+.navbar-brand {
+    font-weight: bolder;
+}
