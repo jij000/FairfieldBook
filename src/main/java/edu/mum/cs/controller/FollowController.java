@@ -86,8 +86,8 @@ public class FollowController extends HttpServlet {
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
 		em.getTransaction().begin();
 
-		TypedQuery<User> tq = em.createQuery("from User where id=?1 ",User.class);
-		tq.setParameter(1,request.getParameter("id"));
+		TypedQuery<User> tq = em.createQuery("from User where id=?1 ", User.class);
+		tq.setParameter(1, Integer.parseInt(request.getParameter("id")));
 
 		User targetUser = tq.getSingleResult();
 		if (targetUser != null) {
