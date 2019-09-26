@@ -43,7 +43,7 @@ let posts = (function () {
     function request() {
         $.get("PostController",{id: globalUserId}).done(function (data) {
             console.log(data);
-            data.forEach(element => {
+            data.reverse().forEach(element => {
                 addFromEnd(element);
             });
         }).fail(function (data) {
