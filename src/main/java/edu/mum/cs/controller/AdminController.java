@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class ControllerServlet
  */
-@WebServlet("/Admin")
+@WebServlet("/Admin/index")
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,6 +36,6 @@ public class AdminController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 //		request.getRequestDispatcher("/admin/admin.jsp").forward(request, response);
-		request.getRequestDispatcher("Admin/AdminPosts").forward(request, response);
+		request.getRequestDispatcher("../Admin/AdminPosts").forward(request, response);
 	}
 }
