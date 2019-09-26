@@ -54,7 +54,7 @@ let posts = (function () {
         removeAll();
         $.get("PostController",{id: globalUserId}).done(function (data) {
             console.log(data);
-            data.reverse().forEach(element => {
+            data.forEach(element => {
                 addFromEnd(element);
             });
         }).fail(function (data) {
