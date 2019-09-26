@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Servlet implementation class ControllerServlet
  */
-@WebServlet("/AdminUsers")
+@WebServlet("/Admin/AdminUsers")
 public class AdminUsersController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -47,7 +47,7 @@ public class AdminUsersController extends HttpServlet {
 			throws ServletException, IOException {
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
-		TypedQuery<UserDto> query = em.createQuery("select new edu.mum.cs.dto.UserDto(u.id, u.name, u.profilePhotoUrl, cast(u.isActive as string)) from User u", UserDto.class);
+		TypedQuery<UserDto> query = em.createQuery("select new edu.mum.cs.dto.UserDto(u.id, u.name, u.profilePhotoUrl, cast(u.isActive as string)) from User u order by u.id desc ", UserDto.class);
 		List<UserDto> userList = query.getResultList();
 		// Close the EntityManager
 		em.close();

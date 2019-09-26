@@ -58,7 +58,7 @@ public class PostController extends HttpServlet {
 				"\tFROM Post p left join User u on u.id = p.author_id \n" +
 				"\tleft join following f on f.followingUserList_id = p.author_id and f.User_id = ?1\n" +
 				"\twhere (p.author_id = ?2 or p.author_id in (select followingUserList_id from following where User_id = ?2))" +
-				"\tand p.isDisable = 'N' ";
+				"\tand p.isDisable = 'N' order by p.id desc";
 		Query query = em.createNativeQuery(sql);
 		query.setParameter(1, user.getId());
 		if ("".equals(request.getParameter("id"))) {
