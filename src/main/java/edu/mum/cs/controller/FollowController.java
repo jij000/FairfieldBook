@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -91,8 +92,20 @@ public class FollowController extends HttpServlet {
 
 		User targetUser = tq.getSingleResult();
 		if (targetUser != null) {
+			if (user.getFollowingUserList()==null) {
+				user.setFollowingUserList(new ArrayList<User>());
+			}
+			if (user.getFollowerUserList()==null) {
+				user.setFollowerUserList(new ArrayList<User>());
+			}
 			user.getFollowingUserList().add(targetUser);
 			user.setFollowingNum(user.getFollowingNum() + 1);
+			if (targetUser.getFollowingUserList()==null) {
+				targetUser.setFollowingUserList(new ArrayList<User>());
+			}
+			if (targetUser.getFollowerUserList()==null) {
+				targetUser.setFollowerUserList(new ArrayList<User>());
+			}
 			targetUser.getFollowerUserList().add(user);
 			targetUser.setFollowerNum(user.getFollowerNum() + 1);
 		}

@@ -33,10 +33,11 @@ $(document).ready(function() {
             "type" : "POST",
             "data" : {
                 "pass":$("#poppass").val(),
-                "picUrl":$("#popprofileimage")[0].src
+                "picUrl":$("#proimageupload")[0].src
             }
         }).done(function (data) {
             //alert(data);
+            loadProfile();
         }).fail(function (xhr, status, exception) {
             //alert(status, exception);
         });
@@ -46,6 +47,7 @@ $(document).ready(function() {
 
 
 function loadProfile(){
+    console.log(globalUserId);
     $.ajax("ProfileController",
         {
             "data":{"name":"","id": globalUserId}
@@ -70,6 +72,12 @@ function displayPro(data){
     if(data.token){
         $('#bindtwitter').attr("disabled", true);
         $('#bindtwitter').html("Twitter Binded");
+    }
+
+    if(!data.isActive){
+        $("#shareBtn").attr("disabled", true);
+        $('#shareBtn').html("Forbidden");
+        $("#shareBtn").attr("class", "btn btn-danger");
     }
         
 }

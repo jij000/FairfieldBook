@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Servlet implementation class ControllerServlet
  */
-@WebServlet("/AdminPosts")
+@WebServlet("/Admin/AdminPosts")
 public class AdminPostsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -45,7 +45,7 @@ public class AdminPostsController extends HttpServlet {
 			throws ServletException, IOException {
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
-		TypedQuery<PostDto> query = em.createQuery("select new edu.mum.cs.dto.PostDto(p.id, p.author.name, p.content, cast(p.isDisable as string)) from Post p", PostDto.class);
+		TypedQuery<PostDto> query = em.createQuery("select new edu.mum.cs.dto.PostDto(p.id, p.author.name, p.content, cast(p.isDisable as string)) from Post p order by p.id desc ", PostDto.class);
 		List<PostDto> postList = query.getResultList();
 		// Close the EntityManager
 		em.close();

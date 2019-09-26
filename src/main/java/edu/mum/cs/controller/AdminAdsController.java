@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Servlet implementation class ControllerServlet
  */
-@WebServlet("/AdminAds")
+@WebServlet("/Admin/AdminAds")
 public class AdminAdsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -47,7 +47,7 @@ public class AdminAdsController extends HttpServlet {
 			throws ServletException, IOException {
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
-		TypedQuery<AdsDto> query = em.createQuery("select new edu.mum.cs.dto.AdsDto(p.id, p.name, p.content,cast(p.isDisable as string)) from Advertisement p", AdsDto.class);
+		TypedQuery<AdsDto> query = em.createQuery("select new edu.mum.cs.dto.AdsDto(p.id, p.name, p.content,cast(p.isDisable as string)) from Advertisement p order by p.id desc ", AdsDto.class);
 		List<AdsDto> adList = query.getResultList();
 		// Close the EntityManager
 		em.close();

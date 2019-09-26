@@ -21,6 +21,7 @@ function addAd(title,subtitle,content,link) {
 }
 
 let globalUserId = null;
+let isActive = null;
 
 function visitOthers(id){
     window.open ("MainControllerServlet?id="+id);
@@ -42,7 +43,6 @@ function readCookie(name) {
 }
 
 function isSelf(){
-
     return globalUserId==null||readCookie("userId")==globalUserId;
 }
 
