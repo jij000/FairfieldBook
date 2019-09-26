@@ -1,5 +1,5 @@
 $(function(){
-    $(document).on("input propertychange",".form-control",function(){
+    $(document).on("input propertychange","#message",function(){
         let textLen = this.value.length;
         initTextarea(textLen);
     });
