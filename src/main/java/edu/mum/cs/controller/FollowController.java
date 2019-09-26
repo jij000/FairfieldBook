@@ -92,7 +92,9 @@ public class FollowController extends HttpServlet {
 		User targetUser = tq.getSingleResult();
 		if (targetUser != null) {
 			user.getFollowingUserList().add(targetUser);
+			user.setFollowingNum(user.getFollowingNum() + 1);
 			targetUser.getFollowerUserList().add(user);
+			targetUser.setFollowerNum(user.getFollowerNum() + 1);
 		}
 		em.merge(user);
 		em.merge(targetUser);
