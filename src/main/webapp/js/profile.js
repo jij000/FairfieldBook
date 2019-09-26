@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    console.log(globalUserId);
     loadProfile();
     //$("#profileimage").attr("src", proUrl);
     $("#bindtwitter").click(function(){
@@ -26,29 +27,6 @@ $(document).ready(function() {
     function debugerr(data) {
         console.log("errr");
     }
-
-    // $("#proimgSubmit").click(function () {
-    //     var form = $("#uploadproimage")[0];
-    //     var data = new FormData(form);
-    //     $.ajax("upload", {
-    //         type : "POST",
-    //         processData : false,
-    //         contentType : false,
-    //         enctype : "multipart/form-data",
-    //         data : data
-    //     }).done(function (data) {
-    //         alert(data);
-    //         // console.log(data.image);
-    //         // $("popprofileimage").attr("src", data.image);
-    //         // $("uploaddebug").html("success");
-    //     }).fail(function (xhr, status, exception) {
-    //         alert("1111");
-    //         // console.log("111111");
-    //         // $("uploaddebug").html("exception");
-    //     });
-    // });
-
-
 
     $("#submitbtn").click(function(){
         $.ajax("UpdateProfileController", {
