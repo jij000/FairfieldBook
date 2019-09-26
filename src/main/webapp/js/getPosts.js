@@ -32,10 +32,14 @@ let posts = (function () {
 
 
     function addFromFront(data){
+        data[2] = decodeURI(data[2]);
+        data[4] = decodeURI(data[4]);
         $("#editorPanel").after(makePost(data));
     }
 
     function addFromEnd(data){
+        data[2] = decodeURI(data[2]);
+        data[4] = decodeURI(data[4]);
         $("#postsContainer").append(makePost(data));
     }
 
@@ -43,6 +47,8 @@ let posts = (function () {
         $(".myposts").remove();
     }
 
+
+// [52, 13, "Jipeng", "https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/facebook_circle-512.png", "???", "", "N", "N", 13] (9)
 
     function request() {
         removeAll();
