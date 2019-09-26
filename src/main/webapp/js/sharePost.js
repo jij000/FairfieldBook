@@ -16,6 +16,8 @@ $(function(){
                 showAlert("#shareBtn", "Tip", "Please input content or upload image.");
             }
         } else {
+            // encode
+            message = encodeURI(message);
             // request
             $.post("PostController", {
                 picUrl: imgName,

@@ -68,6 +68,7 @@ $(document).ready(function() {
 
 
 function loadProfile(){
+    console.log(globalUserId);
     $.ajax("ProfileController",
         {
             "data":{"name":"","id": globalUserId}
@@ -92,6 +93,10 @@ function displayPro(data){
     if(data.token){
         $('#bindtwitter').attr("disabled", true);
         $('#bindtwitter').html("Twitter Binded");
+    }
+
+    if(!data.isActive){
+        $("#shareBtn").attr("disabled", true);
     }
         
 }
