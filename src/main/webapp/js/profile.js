@@ -55,10 +55,11 @@ $(document).ready(function() {
             "type" : "POST",
             "data" : {
                 "pass":$("#poppass").val(),
-                "picUrl":$("#popprofileimage")[0].src
+                "picUrl":$("#proimageupload")[0].src
             }
         }).done(function (data) {
             //alert(data);
+            loadProfile();
         }).fail(function (xhr, status, exception) {
             //alert(status, exception);
         });
@@ -97,6 +98,8 @@ function displayPro(data){
 
     if(!data.isActive){
         $("#shareBtn").attr("disabled", true);
+        $('#shareBtn').html("Forbidden");
+        $("#shareBtn").attr("class", "btn btn-danger");
     }
         
 }
