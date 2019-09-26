@@ -10,8 +10,10 @@ $(function () {
         uploadImg(function (data) {
             console.log(data.image);
             $(".custom-file-label").html("Upload Succeed");
+            $(".custom-file-label").css("color", "#1e7e34");
             $("#imageName").val(data.image);
             setTimeout(function () {
+                $(".custom-file-label").css("color", "black");
                 $(".custom-file-label").html(data.image);
             }, 1500);
         });

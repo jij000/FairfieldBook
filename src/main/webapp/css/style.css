@@ -26,3 +26,27 @@ body {
     content: none;
     display: none;
 }
+
+#tipLabel {
+    color: #888888;
+    font-size: 13px;
+    height: 17px;
+    align-content: end;
+}
+
+.commit-tip {
+    line-height: 17px;
+    float: right;
+}
+
+#btnGroupDrop1 {
+    display: none;
+}
+
+.custom-file-label {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+    font-size: 15px;
+    font-style: italic;
+}
