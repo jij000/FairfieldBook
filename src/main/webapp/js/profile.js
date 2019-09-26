@@ -3,11 +3,11 @@ $(document).ready(function() {
     loadProfile();
     //$("#profileimage").attr("src", proUrl);
     $("#bindtwitter").click(function(){
-        window.location.assign("twitter2oauth")
+        window.location.assign("twitter2oauth");
     });
-    $("#logout").click(function(){
-        window.location.assign("LogoutController")
-    });
+    // $("#logout").click(function(){
+    //     window.location.href("LogoutController");
+    // });
 
     $("#proimgSubmit").click(function () {
         var form = $("#uploadproimage")[0];

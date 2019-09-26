@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //$("#btn1").click(notifiy);
-    setInterval(notifiy,100000)
+    setInterval(notifiy,5000)
     var checkflag=false;
     function notifiy(){
         if(checkflag==false){
