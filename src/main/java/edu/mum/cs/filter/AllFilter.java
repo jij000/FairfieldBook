@@ -26,7 +26,7 @@ public class AllFilter implements Filter {
             filterChain.doFilter(servletRequest,servletResponse);
         }else {
             if (null==httpSession||null==httpSession.getAttribute("user")){
-                ((HttpServletResponse)servletResponse).sendRedirect("login.jsp");
+                ((HttpServletResponse)servletResponse).sendRedirect("/login.jsp");
             }else {
                 filterChain.doFilter(servletRequest,servletResponse);
             }
