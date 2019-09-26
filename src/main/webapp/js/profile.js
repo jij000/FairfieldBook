@@ -71,7 +71,7 @@ $(document).ready(function() {
 function loadProfile(){
     $.ajax("ProfileController",
         {
-            "data":{"name":""}
+            "data":{"name":"",id: globalUserId}
         }
     ).done(displayPro);
 }
