@@ -1,6 +1,6 @@
 let posts = (function () {
     function makePost(data) {
-        let followStr = data[8]?"":`<button class="btn btn-primary" type="button" onclick="followOther(${data[1]})" >Follow</button>`;
+        let followStr = data[8]?"":`<button class="btn btn-primary myposts" type="button" onclick="followOther(${data[1]})" >Follow</button>`;
         let ret = `<div class="card gedf-card">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
@@ -39,8 +39,13 @@ let posts = (function () {
         $("#postsContainer").append(makePost(data));
     }
 
+    function removeAll(){
+        $(".myposts").remove();
+    }
+
 
     function request() {
+        removeAll();
         $.get("PostController",{id: globalUserId}).done(function (data) {
             console.log(data);
             data.reverse().forEach(element => {
@@ -57,6 +62,7 @@ let posts = (function () {
         },
         "getAllPosts": request,
         "addFromFront" : addFromFront,
-        "addFromEnd" : addFromEnd
+        "addFromEnd" : addFromEnd,
+        "removeAll" : removeAll
     }
 })();
