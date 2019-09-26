@@ -1,28 +1,29 @@
 let posts = (function () {
     function makePost(data) {
+        let followStr = data[8]?"":`<button class="btn btn-primary" type="button" onclick="followOther(${data[1]})" >Follow</button>`;
         let ret = `<div class="card gedf-card">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="mr-2">
-                        <img class="rounded-circle" width="45" src="${data.author.profilePhotoUrl}" alt="" onclick="visitOthers(${data.author.name},${data.author.id})">
+                        <img class="rounded-circle" width="45" src="${data[3]}" alt="" onclick="visitOthers(${data[1]})">
                     </div>
                     <div class="ml-2">
-                        <div class="h5 m-0">@${data.author.name}</div>
-                        <div class="h7 text-muted">${data.author.name}</div>
+                        <div class="h5 m-0">@${data[2]}</div>
+                        <div class="h7 text-muted">${data[2]}</div>
                     </div>
                 </div>
                 <div>
                     <div class="dropdown">
-                        <button class="btn btn-primary" type="button">Follow</button>
+                        ${followStr}
                     </div>
                 </div>
             </div>
         </div>
         <div class="card-body">
             <p class="card-text">
-                ${data.content}
-                <img src="${data.picUrl}" width="100%">
+                ${data[4]}
+                <img src="${data[5]}" width="100%">
             </p>
         </div>
     </div>`;
@@ -40,7 +41,8 @@ let posts = (function () {
 
 
     function request() {
-        $.ajax("PostController",{id: globalUserId}).done(function (data) {
+        $.get("PostController",{id: globalUserId}).done(function (data) {
+            console.log(data);
             data.forEach(element => {
                 addFromEnd(element);
             });
@@ -53,6 +55,7 @@ let posts = (function () {
         "init": function () {
             request();
         },
+        "getAllPosts": request,
         "addFromFront" : addFromFront,
         "addFromEnd" : addFromEnd
     }

@@ -19,9 +19,8 @@ $(document).ready(function() {
     });
 
     function debug111(data) {
-        data=JSON.parse(data);
         console.log(data.image);
-        $("#proimageupload").attr("src","https://images.unsplash.com/photo-1557408598-f94d59f9fd12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80");
+        $("#proimageupload").attr("src",data.image);
     }
 
     function debugerr(data) {
@@ -71,7 +70,7 @@ $(document).ready(function() {
 function loadProfile(){
     $.ajax("ProfileController",
         {
-            "data":{"name":"",id: globalUserId}
+            "data":{"name":"","id": globalUserId}
         }
     ).done(displayPro);
 }

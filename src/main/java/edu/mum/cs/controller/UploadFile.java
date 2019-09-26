@@ -43,7 +43,7 @@ public class UploadFile extends HttpServlet {
         fos.close();
         is.close();
         //拼接返回值域名路径（可修改）
-        String hostPath = FBUtility.getServerUrl(req.getServletContext()).split(":")[0];
+        String hostPath = FBUtility.getServerUrl(req.getServletContext());
         String urlPath = hostPath + "/" + filename;
         resp.setContentType("application/json");
         resp.getWriter().println("{\"image\": \"" + urlPath + "\"}");

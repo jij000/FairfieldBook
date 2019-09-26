@@ -22,7 +22,7 @@ function addAd(title,subtitle,content,link) {
 
 let globalUserId = null;
 
-function visitOthers(name,id){
+function visitOthers(id){
     window.open ("MainControllerServlet?id="+id);
 }
 
@@ -36,9 +36,21 @@ function getUrlParam(name) {
     if (r != null) return unescape(r[2]); return null;
 }
 
+function followOther(id){
+    $.get("FollowController",
+        {"id":id}).done(function(data){
+            console.log(data);
+            loadProfile();
+            posts.getAllPosts();
+        })
+}
+
 //start from here
 $(function(){
     globalUserId = getUrlParam("id");
+    if(globalUserId){
+        $("#editorPanel").hide();
+    }
     weather.init();
     posts.init();
 });

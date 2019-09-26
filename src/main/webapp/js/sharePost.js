@@ -27,7 +27,7 @@ $(function(){
                     $(".custom-file-label").html("Choose image");
                     initTextarea(0);
                     console.log(data);
-                    posts.addFromEnd(data);
+                    posts.addFromFront(data);
                 }
             ).fail(function (xhr, status, exception) {
                 $('#adpanel').append(status);
