@@ -9,6 +9,7 @@ public class PostAndFollowDto {
     private int id;
     private String authorId;
     private String authorName;
+    private String profilePhotoUrl;
     private String content;
     private String picUrl;
     private boolean isFromTwitter;

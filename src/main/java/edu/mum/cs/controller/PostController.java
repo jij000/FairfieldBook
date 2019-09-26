@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,7 +53,7 @@ public class PostController extends HttpServlet {
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
 		User user = (User)request.getSession().getAttribute("user");
 
-		String sql = "SELECT p.id, u.id authorId, u.name authorName, p.content, p.picUrl, p.isFromTwitter, p.isDisable, " +
+		String sql = "SELECT p.id, u.id authorId, u.name authorName, u.profilePhotoUrl, p.content, p.picUrl, p.isFromTwitter, p.isDisable, " +
 				"case when p.author_id = 1 then 1 else f.followingUserList_id end canFollow\n" +
 				"\tFROM Post p left join User u on u.id = p.author_id \n" +
 				"\tleft join following f on f.followingUserList_id = p.author_id and f.User_id = ?1\n" +
