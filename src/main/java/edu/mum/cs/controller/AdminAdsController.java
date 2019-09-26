@@ -1,5 +1,6 @@
 package edu.mum.cs.controller;
 
+import edu.mum.cs.dto.AdsDto;
 import edu.mum.cs.dto.PostDto;
 import edu.mum.cs.model.Advertisement;
 import edu.mum.cs.model.Post;
@@ -46,8 +47,8 @@ public class AdminAdsController extends HttpServlet {
 			throws ServletException, IOException {
 		// Open a EntityManager
 		EntityManager em = FBUtility.getEntityManager(request.getServletContext());
-		TypedQuery<Advertisement> query = em.createQuery(" from Advertisement p", Advertisement.class);
-		List<Advertisement> adList = query.getResultList();
+		TypedQuery<AdsDto> query = em.createQuery("select new edu.mum.cs.dto.AdsDto(p.id, p.name, p.content,cast(p.isDisable as string)) from Advertisement p", AdsDto.class);
+		List<AdsDto> adList = query.getResultList();
 		// Close the EntityManager
 		em.close();
 		request.setAttribute("adList", adList);

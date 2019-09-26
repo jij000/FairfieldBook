@@ -9,5 +9,5 @@ public class AdsDto {
     private int id;
     private String name;
     private String content;
-    private String isActive;
+    private String isDisable;
 }
