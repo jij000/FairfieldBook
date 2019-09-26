@@ -106,16 +106,16 @@ public class PostController extends HttpServlet {
 		em.getTransaction().commit();
 		em.close();
 
-		PostAndFollowDto pDto = new PostAndFollowDto();
-		pDto.setId(post.getId());
-		pDto.setAuthorId(post.getAuthor().getId());
-		pDto.setAuthorName(post.getAuthor().getName());
-		pDto.setProfilePhotoUrl(post.getAuthor().getProfilePhotoUrl());
-		pDto.setContent(post.getContent());
-		pDto.setPicUrl(post.getPicUrl());
-		pDto.setFromTwitter(post.isFromTwitter());
-		pDto.setDisable(post.isDisable());
-		pDto.setCanFollow("1");
+		String[] pDto = new String[9];
+		pDto[0]=String.valueOf(post.getId());
+		pDto[1]=String.valueOf(post.getAuthor().getId());
+		pDto[2]=post.getAuthor().getName();
+		pDto[3]=post.getAuthor().getProfilePhotoUrl();
+		pDto[4]=post.getContent();
+		pDto[5]=post.getPicUrl();
+		pDto[6]=String.valueOf(post.isFromTwitter());
+		pDto[7]=String.valueOf(post.isDisable());
+		pDto[8]="1";
 
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");

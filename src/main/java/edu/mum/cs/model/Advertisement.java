@@ -18,4 +18,6 @@ public class Advertisement {
     @Type(type="yes_no")
     @Column(nullable = false)
     private boolean isDisable;
+
+
 }
