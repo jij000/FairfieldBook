@@ -211,15 +211,16 @@
                                             <td>${ad1.name}</td>
                                             <td><c:out value="${ad1.content}"></c:out></td>
 
-<%--                                            <td>${ad1}</td>--%>
-                                            <c:if test="${ad1.isDisable=='N'}">
-                                                <td>active</td>
-                                                <td><button class="btn btn-danger">disable</button></td>
-                                            </c:if>
-                                            <c:if test="${ad1.isDisable=='Y'}">
-                                                <td>inactive</td>
-                                                <td><button class="btn btn-info">enable</button></td>
-                                            </c:if>
+                                            <td>${ad1}</td>
+                                            <td><c:out value="${ad1.isDisable}"></c:out></td>
+<%--                                            <c:if test="${ad1.isDisable =='N'}">--%>
+<%--                                                <td>active</td>--%>
+<%--                                                <td><button class="btn btn-danger">disable</button></td>--%>
+<%--                                            </c:if>--%>
+<%--                                            <c:if test="${ad1.isDisable =='Y'}">--%>
+<%--                                                <td>inactive</td>--%>
+<%--                                                <td><button class="btn btn-info">enable</button></td>--%>
+<%--                                            </c:if>--%>
                                         </tr>
                                     </c:forEach>
                                     </tbody>

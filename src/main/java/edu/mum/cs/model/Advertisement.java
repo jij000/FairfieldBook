@@ -5,6 +5,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
+@Data
 @Entity
 public class Advertisement {
     @Id
@@ -17,36 +18,4 @@ public class Advertisement {
     @Type(type="yes_no")
     @Column(nullable = false)
     private boolean isDisable;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public boolean isDisable() {
-        return isDisable;
-    }
-
-    public void setDisable(boolean disable) {
-        isDisable = disable;
-    }
 }

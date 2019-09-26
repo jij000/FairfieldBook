@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,8 +24,8 @@ public class LoginController extends HttpServlet {
 
         EntityManager em = FBUtility.getEntityManager(request.getServletContext());
         em.getTransaction().begin();
-        TypedQuery<User> tq = em.createQuery("from User where name=?0 ",User.class);
-        tq.setParameter(0,name);
+        TypedQuery<User> tq = em.createQuery("from User where name=?1 ",User.class);
+        tq.setParameter(1,name);
 
 //        User user = tq.getSingleResult();
         List<User> list = tq.getResultList();
@@ -43,6 +44,9 @@ public class LoginController extends HttpServlet {
         }
         else{
             request.getSession().setAttribute("user",list.get(0));
+            Cookie cookie = new Cookie("userId", String.valueOf(list.get(0).getId()));
+            cookie.setMaxAge(360000000);
+            response.addCookie(cookie);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.html");
             requestDispatcher.forward(request,response);
         }
