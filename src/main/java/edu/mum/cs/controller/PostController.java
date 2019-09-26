@@ -54,7 +54,7 @@ public class PostController extends HttpServlet {
 		User user = (User)request.getSession().getAttribute("user");
 
 		String sql = "SELECT p.id, u.id authorId, u.name authorName, u.profilePhotoUrl, p.content, p.picUrl, p.isFromTwitter, p.isDisable, " +
-				"case when p.author_id = 1 then 1 else f.followingUserList_id end canFollow\n" +
+				"case when p.author_id = " + String.valueOf(user.getId()) + " then " + String.valueOf(user.getId()) + " else f.followingUserList_id end canFollow\n" +
 				"\tFROM Post p left join User u on u.id = p.author_id \n" +
 				"\tleft join following f on f.followingUserList_id = p.author_id and f.User_id = ?1\n" +
 				"\twhere (p.author_id = ?2 or p.author_id in (select followingUserList_id from following where User_id = ?2))";
