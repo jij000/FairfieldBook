@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import edu.mum.cs.dto.PostAndFollowDto;
 import edu.mum.cs.model.Advertisement;
 import edu.mum.cs.model.Post;
+import edu.mum.cs.model.PostUpdateInfo;
 import edu.mum.cs.model.User;
 import edu.mum.cs.utility.FBUtility;
 
@@ -102,6 +103,12 @@ public class PostController extends HttpServlet {
 		post.setFromTwitter(false);
 		post.setDisable(false);
 		em.persist(post);
+		for (User u : user.getFollowerUserList()) {
+			PostUpdateInfo postUpdateInfo = new PostUpdateInfo();
+			postUpdateInfo.setPost(post);
+			postUpdateInfo.setFollower(u);
+			em.persist(postUpdateInfo);
+		}
 
 		// Close the EntityManager
 		em.getTransaction().commit();

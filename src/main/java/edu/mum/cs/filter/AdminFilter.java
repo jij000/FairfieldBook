@@ -22,7 +22,7 @@ public class AdminFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         User user = (User) ((HttpServletRequest) req).getSession().getAttribute("user");
         if (null == user || !SystemRole.ADMIN.equals(user.getRole())) {
-            ((HttpServletResponse) res).sendRedirect("login.jsp");
+            ((HttpServletResponse) res).sendRedirect("/login.jsp");
         } else {
             chain.doFilter(req, res);
         }
