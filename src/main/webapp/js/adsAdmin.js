@@ -13,11 +13,11 @@ $(function () {
             function (data) {
                 if (isDisable) {
                     btn.text("enable");
-                    btn.attr("class", "btn-info");
+                    btn.attr("class", "btn btn-info");
                     tdisDisable.innerText = "inactive";
                 } else {
                     btn.text("disable");
-                    btn.attr("class", "btn-danger");
+                    btn.attr("class", "btn btn-danger");
                     tdisDisable.innerText = "active";
                 }
             }

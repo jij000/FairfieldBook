@@ -59,7 +59,11 @@ public class PostController extends HttpServlet {
 				"\twhere (p.author_id = ?2 or p.author_id in (select followingUserList_id from following where User_id = ?2))";
 		Query query = em.createNativeQuery(sql);
 		query.setParameter(1, user.getId());
-		query.setParameter(2, request.getParameter("id"));
+		if ("".equals(request.getParameter("id"))) {
+			query.setParameter(2, user.getId());
+		} else {
+			query.setParameter(2, request.getParameter("id"));
+		}
 
 //		query.setParameter(1, user.getId());
 		List<PostAndFollowDto> postList = query.getResultList();
