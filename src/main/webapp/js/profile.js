@@ -5,6 +5,9 @@ $(document).ready(function() {
     $("#bindtwitter").click(function(){
         window.location.assign("twitter2oauth")
     });
+    $("#logout").click(function(){
+        window.location.assign("LogoutController")
+    });
 
     $("#proimgSubmit").click(function () {
         var form = $("#uploadproimage")[0];

@@ -22,15 +22,16 @@ public class AllFilter implements Filter {
         HttpSession httpSession = httpServletRequest.getSession(false);
         String urlString = httpServletRequest.getRequestURL().toString().toUpperCase();
 
-        if (urlString.indexOf("LOGIN")>-1||urlString.indexOf("REGI")>-1){
-            filterChain.doFilter(servletRequest,servletResponse);
-        }else {
-            if (null==httpSession||null==httpSession.getAttribute("user")){
-                ((HttpServletResponse)servletResponse).sendRedirect("/login.jsp");
-            }else {
-                filterChain.doFilter(servletRequest,servletResponse);
-            }
-        }
+//        if (urlString.indexOf("LOG")>-1||urlString.indexOf("REGI")>-1){
+//            filterChain.doFilter(servletRequest,servletResponse);
+//        }else {
+//            if (null==httpSession||null==httpSession.getAttribute("user")){
+//                ((HttpServletResponse)servletResponse).sendRedirect("/login.jsp");
+//            }else {
+//                filterChain.doFilter(servletRequest,servletResponse);
+//            }
+//        }
+        filterChain.doFilter(servletRequest,servletResponse);
     }
 
     @Override
