@@ -107,14 +107,6 @@ public class PostController extends HttpServlet {
 		em.close();
 
 		PostAndFollowDto pDto = new PostAndFollowDto();
-		private String authorId;
-		private String authorName;
-		private String profilePhotoUrl;
-		private String content;
-		private String picUrl;
-		private boolean isFromTwitter;
-		private boolean isDisable;
-		private boolean canFollow;
 		pDto.setId(post.getId());
 		pDto.setAuthorId(post.getAuthor().getId());
 		pDto.setAuthorName(post.getAuthor().getName());
